@@ -1,12 +1,17 @@
-import './CoreConcepts.css';
+import { CORE_CONCEPTS } from "../../data";
+import CoreConcept from "./CoreConcept";
 
-const  CoreConcepts = ({image,title,description}) => {
+const CoreConcepts = () => {
     return (
-          <li>
-            <img src={image} alt={title} />
-            <h3>{title}</h3>
-            <p>{description}</p>
-          </li>  
+        <section id='core-concepts'>
+            <h2>Core concepts </h2>
+            <ul>
+                {CORE_CONCEPTS && CORE_CONCEPTS.map((concept)=>(
+                    <CoreConcept {...concept} key={concept.title}/>
+                ))}
+            </ul>
+        </section>
     );
-  }
-  export default CoreConcepts;
+}
+
+export default CoreConcepts;
